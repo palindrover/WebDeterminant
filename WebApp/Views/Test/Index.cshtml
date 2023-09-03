@@ -1,0 +1,18 @@
+﻿@using WebApp.Models
+@model IEnumerable<Question>
+
+<h1>Тест</h1>
+
+<form method="post">
+@foreach(var i in Model)
+{
+	<text>Вопрос №@i.ID</text><br />
+
+	@i.Quest<br />
+
+	<p><input name="answer[@i.ID]" type="radio" value=@true>Да</p>
+	<p><input name="answer[@i.ID]" type="radio" value=@false>Нет</p>
+}
+
+<input type="submit" />
+</form>
