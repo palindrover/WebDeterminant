@@ -1,13 +1,16 @@
 ﻿@using WebApp.Models
 @model IEnumerable<Plant>
 
-<h1>Растения</h1>
+@{
+	ViewBag.Title = "Растения";
+	Layout = "/Views/Shared/_Layout.cshtml";
+}
 
 @foreach(var i in Model)
 {
-	@i.Name<br />
+	<p style="font-size: 25px">@i.Name</p>
 
 	<img src=@i.PictureUrl /><br />
 
-	<details>@i.Info</details><br />
+	<details style="color: blue"><div style="color:black">@i.Info</div></details><br />
 }

@@ -1,7 +1,10 @@
 ﻿@using WebApp.Models
 @model IEnumerable<Question>
 
-<h1>Тест</h1>
+@{
+	ViewBag.Title = "Тест";
+	Layout = "/Views/Shared/_Layout.cshtml";
+}
 
 <form method="post">
 @foreach(var i in Model)
