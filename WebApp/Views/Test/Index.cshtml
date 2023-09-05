@@ -7,15 +7,19 @@
 }
 
 <form method="post">
-@foreach(var i in Model)
-{
-	<text>Вопрос №@i.ID</text><br />
 
-	@i.Quest<br />
+	@foreach (var i in Model)
+	{
+		<p>Вопрос №@i.ID</p>
 
-	<p><input name="answer[@i.ID]" type="radio" value=@true>Да</p>
-	<p><input name="answer[@i.ID]" type="radio" value=@false>Нет</p>
-}
+		<p>@i.Quest</p>
 
-<input type="submit" />
+		<p><input name="answer[@i.ID]" type="radio" value=@true>Да</p>
+		<p><input name="answer[@i.ID]" type="radio" value=@false>Нет</p>
+	}
+
+	<input type="submit" />
 </form>
+
+<p></p>
+<button><a href="/Test/Result">Результат</a></button>
