@@ -1,0 +1,21 @@
+﻿@using WebApplication1.Models;
+@model Question
+
+@if (Model.Id < 0)
+{
+	<p>Вы ответили на все вопросы</p>
+}
+else
+{
+<form method="post" asp-controller="Test" asp-action="Result">
+	
+	<label>@Model.Text</label> <br />
+
+	<input name="Answer" type="radio" value="true" /> <text>Yes</text> <br />
+	
+	<input name="Answer" type="radio" value="false" /> <text>No</text> <br />
+
+	<p><input type="submit" value="Send" /></p>
+
+</form>
+}
