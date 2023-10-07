@@ -15,9 +15,16 @@ namespace WebApplication1.Controllers
 			new Question(4, "Вопрос 4", -1, -1, null)
         };
 
-		public IActionResult Index()
+		public IActionResult Index(int id = 1)
 		{
-			return View(questions[Id - 1]);
+			if (id < 0)
+			{
+				return RedirectToAction("End", "Test");
+			}
+			else
+			{
+				return View(questions[id - 1]);
+			}
 		}
 
 		public IActionResult Result(bool Answer)
@@ -26,16 +33,21 @@ namespace WebApplication1.Controllers
 			{
 				prevId = Id;
 
-				Id = questions[prevId].IfTrue;
+				Id = questions[prevId - 1].IfTrue;
 			}
-			else 
+			else
 			{
 				prevId = Id;
 
-				Id = questions[prevId].IfFalse;
+				Id = questions[prevId - 1].IfFalse;
 			}
 
-			return RedirectToAction("Index");
+			return RedirectToAction("Index", "Test", new { id = Id });
+		}
+
+		public string End()
+		{
+			return "Вы ответили на все вопросы";
 		}
 	}
 }
