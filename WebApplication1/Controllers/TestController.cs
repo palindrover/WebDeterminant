@@ -7,42 +7,41 @@ namespace WebApplication1.Controllers
 	{
 		private int Id = 1, prevId;
 
-		private List<Question> questions = new List<Question>
+		private readonly List<Question> questions = new()
 		{
 			new Question(1, "Вопрос 1", 3, 2, null),
             new Question(2, "Вопрос 2", 3, 4, null),
-            new Question(3, "Вопрос 3", 4, 4, null),
-			new Question(4, "Вопрос 4", -1, -1, null)
+            new Question(3, "Вопрос 3", 5, 4, null),
+			new Question(4, "Вопрос 4", -1, 5, null),
+			new Question(5, "Вопрос 5", -1, -1, null)
         };
 
 		public IActionResult Index(int id = 1)
 		{
-			if (id < 0)
+			if (id > 0)
 			{
-				return RedirectToAction("End", "Test");
+				return View(questions[id - 1]);
 			}
 			else
 			{
-				return View(questions[id - 1]);
+				return RedirectToAction("End");
 			}
 		}
 
 		public IActionResult Result(bool Answer)
 		{
-			if (Answer == true)
-			{
-				prevId = Id;
+			prevId = Id;
 
+			if (Answer)
+			{
 				Id = questions[prevId - 1].IfTrue;
 			}
 			else
 			{
-				prevId = Id;
-
 				Id = questions[prevId - 1].IfFalse;
 			}
 
-			return RedirectToAction("Index", "Test", new { id = Id });
+			return RedirectToAction("Index", new { id = Id });
 		}
 
 		public string End()
