@@ -9,6 +9,17 @@
 	
 	<input name="Answer" type="radio" value="false" /> <text>No</text> <br />
 
+	<input name="Id" value="@Model.Id" hidden />
+
 	<p><input type="submit" value="Send" /></p>
 
 </form>
+
+@if(Model.Id > 1)
+{
+	<form asp-controller="Test" asp-action="Back">
+
+		<input type="submit" value="Back">
+
+	</form>
+}

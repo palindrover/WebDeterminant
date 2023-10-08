@@ -5,15 +5,13 @@ namespace WebApplication1.Controllers
 {
 	public class TestController : Controller
 	{
-		private int Id = 1, prevId;
-
 		private readonly List<Question> questions = new()
 		{
-			new Question(1, "Вопрос 1", 3, 2, null),
-            new Question(2, "Вопрос 2", 3, 4, null),
-            new Question(3, "Вопрос 3", 5, 4, null),
-			new Question(4, "Вопрос 4", -1, 5, null),
-			new Question(5, "Вопрос 5", -1, -1, null)
+			new Question(1, "Вопрос 1", 3, 2),
+            new Question(2, "Вопрос 2", 3, 4),
+            new Question(3, "Вопрос 3", 5, 4),
+			new Question(4, "Вопрос 4", -1, 5),
+			new Question(5, "Вопрос 5", -1, -1)
         };
 
 		public IActionResult Index(int id = 1)
@@ -28,17 +26,17 @@ namespace WebApplication1.Controllers
 			}
 		}
 
-		public IActionResult Result(bool Answer)
+		public IActionResult Result(bool Answer, int Id)
 		{
-			prevId = Id;
+			
 
 			if (Answer)
 			{
-				Id = questions[prevId - 1].IfTrue;
+				Id = questions[Id - 1].IfTrue;
 			}
 			else
 			{
-				Id = questions[prevId - 1].IfFalse;
+				Id = questions[Id - 1].IfFalse;
 			}
 
 			return RedirectToAction("Index", new { id = Id });
@@ -47,6 +45,11 @@ namespace WebApplication1.Controllers
 		public string End()
 		{
 			return "Вы ответили на все вопросы";
+		}
+
+		public IActionResult Back()
+		{
+			return RedirectToAction("Index");
 		}
 	}
 }
