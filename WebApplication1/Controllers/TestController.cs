@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using WebApplication1.Models;
+using WebApplication1.Controllers.UtilityControllers;
 
 namespace WebApplication1.Controllers
 {
@@ -28,7 +29,7 @@ namespace WebApplication1.Controllers
 
 		public IActionResult Result(bool Answer, int Id)
 		{
-			
+			QuestionStack.AddTransitionNode(Id);
 
 			if (Answer)
 			{
@@ -49,7 +50,7 @@ namespace WebApplication1.Controllers
 
 		public IActionResult Back()
 		{
-			return RedirectToAction("Index");
+			return RedirectToAction("Index", new { id = QuestionStack.GetLastNode() });
 		}
 	}
 }
