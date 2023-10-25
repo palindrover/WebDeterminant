@@ -2,11 +2,17 @@
 using WebApplication1.Models;
 using WebApplication1.Controllers.UtilityControllers;
 using Microsoft.EntityFrameworkCore;
+using WebApplication1.Context;
+using WebApplication1.Controllers.UtilityControllers;
 
 namespace WebApplication1.Controllers
 {
 	public class TestController : Controller
 	{
+		QuestionContext _context;
+
+		List<Question> questions = new();
+
 		public IActionResult Index(int id = 1)
 		{
 			if (id > 0)
@@ -44,5 +50,10 @@ namespace WebApplication1.Controllers
 		{
 			return RedirectToAction("Index", new { id = QuestionStack.GetLastNode() });
 		}
+
+		private void GetHttpContext()
+		{
+            _context ??= HttpContext.RequestServices.GetService(typeof(WebApplication1.Context.QuestionContext)) as QuestionContext;
+        }
 	}
 }

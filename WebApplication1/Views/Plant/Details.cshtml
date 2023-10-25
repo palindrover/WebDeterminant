@@ -1,0 +1,35 @@
+﻿@model WebApplication1.Models.Plant
+<div>
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myModalLabel">Подробная информация</h4>
+        <button type="button" class="close" data-bs-dismiss="modal" aria-hidden="true">×</button>
+    </div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>Изображение:</dt>
+        <dd align="center"><img src="@Html.DisplayFor(model => model.ImageURL)" width="450px" /></dd>
+
+        <dt>Отдел:</dt>
+        <dd>@Html.DisplayFor(model => model.Phylus) (@Html.DisplayFor(model => model.PhylusLatin))</dd>
+
+        <dt>Класс:</dt>
+        <dd>@Html.DisplayFor(model => model.Class) (@Html.DisplayFor(model => model.ClassLatin))</dd>
+
+        <dt>Семейство:</dt>
+        <dd>@Html.DisplayFor(model => model.Family) (@Html.DisplayFor(model => model.FamilyLatin))</dd>
+
+        <dt>Род:</dt>
+        <dd>@Html.DisplayFor(model => model.Genus) (@Html.DisplayFor(model => model.GenusLatin))</dd>
+
+        <dt>Вид:</dt>
+        <dd>@Html.DisplayFor(model => model.Name) (@Html.DisplayFor(model => model.LatinName))</dd>
+
+        <dt>Нашел и определил:</dt>
+        <dd>@Html.DisplayFor(model => model.Finder)</dd>
+
+        <dt>Подробнее о растении:</dt>
+        <dd><a href="@Html.DisplayFor(model => model.Description)" target="_blank">Перейти</a></dd>
+
+    </dl>
+</div>
