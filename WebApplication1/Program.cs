@@ -1,9 +1,16 @@
 using WebApplication1.Controllers.UtilityControllers;
+using WebApplication1.Context;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+// получаем строку подключения из файла конфигурации
+var connection = builder.Configuration.GetConnectionString("DefaultConnection");
+
+builder.Services.Add(new ServiceDescriptor(typeof(PlantContext), new PlantContext(connection)));
+builder.Services.Add(new ServiceDescriptor(typeof(QuestionContext), new QuestionContext(connection)));
 
 var app = builder.Build();
 
@@ -27,5 +34,10 @@ app.MapControllerRoute(
 	pattern: "{controller=Home}/{action=Index}/{id?}");
 
 QuestionStack.Init();
+
+QuestionList.Init(QuestionList.Count());
+QuestionList.FillList();
+
+SearchStringBuilder.Init();
 
 app.Run();
