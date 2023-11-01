@@ -35,4 +35,9 @@ app.MapControllerRoute(
 
 QuestionStack.Init();
 
+QuestionList.Init(QuestionList.Count());
+QuestionList.FillList();
+
+SearchStringBuilder.Init();
+
 app.Run();
