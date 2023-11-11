@@ -15,11 +15,9 @@ namespace WebApplication1.Models
 		public string? Finder { get; set; }
 		public string? Description { get; set; }
 		public int LiveFormID { get; set; }
-		public int LeafModificationID { get; set; }
-		public int LeafStructureID { get; set; }
-		public int LeafArrangmentID { get; set; }
-
-
+		public int? LeafModificationID { get; set; }
+		public int? LeafStructureID { get; set; }
+		public int? LeafArrangmentID { get; set; }
 		public string? Genus { get; set; }
 		public string? GenusLatin { get; set; }
 		public string? Family { get; set; }

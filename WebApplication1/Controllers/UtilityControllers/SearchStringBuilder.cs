@@ -17,7 +17,6 @@
 		{
 			_searchIDs = new Dictionary<string, int>
 			{
-                //TODO инициализация из файла конфигурации
                 { "leafarrangementid", 0 },
 				{ "leafstructureid", 0 },
 				{ "leafmodificationid", 0 },
@@ -46,7 +45,7 @@
 				{
 					_searchString += $"((vidy.{_searchIDs.ElementAt(i).Key})={_searchIDs.ElementAt(i).Value})";
 
-					if (trueFlagsCount - 1 > 0)
+					if (trueFlagsCount > 1)
 						_searchString += " AND ";
 					trueFlagsCount--;
 				}

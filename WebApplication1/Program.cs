@@ -40,4 +40,6 @@ QuestionList.FillList();
 
 SearchStringBuilder.Init();
 
+PlantList.Init();
+
 app.Run();

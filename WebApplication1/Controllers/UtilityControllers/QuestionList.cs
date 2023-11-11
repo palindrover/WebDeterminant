@@ -1,5 +1,4 @@
 ﻿using WebApplication1.Models;
-using WebApplication1.Context;
 using MySql.Data.MySqlClient;
 
 namespace WebApplication1.Controllers.UtilityControllers
