@@ -146,6 +146,12 @@ h6, .h6 {
   font-size: 1rem;
 }
 
+a{
+    color: #000000;
+    background-color: #ffffff;
+    text-decoration: none;
+}
+
 p {
   margin-top: 0;
   margin-bottom: 1rem;

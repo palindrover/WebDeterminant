@@ -31,7 +31,7 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
 	name: "default",
-	pattern: "{controller=Home}/{action=Index}/{id?}");
+	pattern: "{controller=Plant}/{action=Index}/{id?}");
 
 QuestionStack.Init();
 

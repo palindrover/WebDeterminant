@@ -17,7 +17,7 @@ namespace WebApplication1.Controllers
 			return View(QuestionList._questions[id - 1]);
 		}
 
-		public IActionResult Result(bool Answer, int Id)
+		public IActionResult Result(int Answer, int Id)
 		{
 			GetHttpContext();
 
@@ -28,11 +28,11 @@ namespace WebApplication1.Controllers
                 AddToSearchString(Id);
             }
 
-            if (Answer)
+            if (Answer == 1)
 			{
 				Id = QuestionList._questions[Id - 1].IfTrue;
 			}
-			else
+			else if(Answer == 2)
 			{
 				Id = QuestionList._questions[Id - 1].IfFalse;
 			}

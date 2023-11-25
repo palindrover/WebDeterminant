@@ -1,25 +1,29 @@
 ﻿@using WebApplication1.Models;
 @model Question
 
-<form method="post" asp-controller="Test" asp-action="Result">
+<div class="test__index">
+	<form method="post" asp-controller="Test" asp-action="Result">
 	
-	<label>@Model.QuestionText</label> <br />
+		<label>@Model.QuestionText</label> <br />
 
-	<input name="Answer" type="radio" value="true" /> <text>Yes</text> <br />
+		<input name="Answer" type="radio" value="0" hidden/> <br />
+
+
+		<div class="test__index_answer_yes"><input name="Answer" type="radio" value="1" /> <text>Да</text></div>
+		<div class="test__index_answer_no"><input name="Answer" type="radio" value="2" /> <text>Нет</text></div> <br />
+
+		<input name="Id" value="@Model.Id" hidden />
 	
-	<input name="Answer" type="radio" value="false" /> <text>No</text> <br />
-
-	<input name="Id" value="@Model.Id" hidden />
-
-	<p><input type="submit" value="Send" /></p>
-
-</form>
-
-@if(Model.Id > 1)
-{
-	<form asp-controller="Test" asp-action="Back">
-
-		<input type="submit" value="Back">
+		<input type="submit" value="Send" class="test__index_submit"/>
 
 	</form>
-}
+
+	@if(Model.Id > 1)
+	{
+		<form asp-controller="Test" asp-action="Back">
+
+			<input type="submit" value="Back" class="test__index_back">
+
+		</form>
+	}
+</div>

@@ -20,3 +20,47 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+a{
+    color: #000000;
+    text-decoration: none;
+}
+
+.test__index {
+    margin-left: calc(50vw - 264px);
+    width: 528px;
+    text-align: center;
+}
+
+.test__index_submit{
+    float: right;
+    margin-right: 170px;
+    margin-top: 25px;
+    width: 100px;
+    height: 50px;
+}
+
+.test__index_back {
+    float: left;
+    margin-left: 150px;
+    margin-top: 35px;
+}
+
+.test__index_answer_yes {
+    float: left;
+    margin-left: 200px;
+}
+
+.test__index_answer_no {
+    float: right;
+    margin-right: 200px;
+}
+
+.test__end table{
+    border-collapse: separate;
+    border-spacing: 50px;
+}
+
+.test__end th {
+    text-align: center;
+}
