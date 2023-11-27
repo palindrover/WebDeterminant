@@ -5,7 +5,7 @@ namespace WebApplication1.Controllers.UtilityControllers
 {
     public class QuestionList
     {
-        public static List<Question> _questions;
+        public static List<Question>? _questions;
 
         public static void Init(int size)
         {

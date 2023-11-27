@@ -4,7 +4,7 @@ namespace WebApplication1.Controllers.UtilityControllers
 {
     public class PlantList
     {
-        private static List<Plant> _plants;
+        private static List<Plant>? _plants;
 
         public static void Init()
         {

@@ -2,7 +2,7 @@
 {
 	public class QuestionStack
 	{
-		private static Stack<int> _stack;
+		private static Stack<int>? _stack;
 
 		public static void Init()
 		{

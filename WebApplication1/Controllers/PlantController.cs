@@ -1,8 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using WebApplication1.Context;
-using WebApplication1.Models;
-using Microsoft.AspNetCore.SignalR;
-using MySql.Data.MySqlClient;
+
 
 namespace WebApplication1.Controllers
 {
