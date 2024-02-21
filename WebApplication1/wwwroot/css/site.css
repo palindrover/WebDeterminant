@@ -26,10 +26,20 @@ a{
     text-decoration: none;
 }
 
+.container{
+    padding-top: 80px;
+}
+
 .test__index {
     margin-left: calc(50vw - 264px);
     width: 528px;
     text-align: center;
+}
+
+.search{
+    margin-top: 55px;
+    margin-left: 80vw;
+    position:fixed;
 }
 
 .test__index_submit{
