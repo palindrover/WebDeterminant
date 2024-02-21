@@ -26,5 +26,11 @@ namespace WebApplication1.Controllers
 
 			return PartialView("Details", _context.GetPlantsByID(id));
 		}
+
+  		public IActionResult Search(string searchString)
+		{
+			GetHttpContext();
+			return View(_context.GetPlantsBySearchString(searchString));
+		}
 	}
 }
