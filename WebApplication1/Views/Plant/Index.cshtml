@@ -2,6 +2,12 @@
 
 @{int counter = 1;}
 
+<form method="get" action="@Url.Action("Search", "Plant")">
+    <label for="search">Поиск растения</label>
+    <input type="text" name="searchString" id="searchString" />
+    <button type="submit">Найти</button>
+</form>
+
 <div class="test__end">
 <table>
 	@foreach(var item in Model)

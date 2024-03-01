@@ -1,0 +1,109 @@
+﻿@model IEnumerable<WebApplication1.Models.Plant>
+
+@{
+    ViewData["Title"] = "Поиск растений";
+}
+<h2>Поиск растений:</h2>
+
+<table border="0" width="100%">
+    <tr>
+        <th width="35%">
+            <form method="get" action="@Url.Action("Search", "Plant")">
+                <label for="search">Поиск растения</label>
+                <input type="text" name="searchString" id="searchString" />
+                <button type="submit">Найти</button>
+            </form>
+        </th>
+        <th width="65%">
+            <form method="post" action="@Url.Action("Index", "Plant")">
+                <button type="submit">Вернуться к полному списку растений</button>
+            </form>
+        </th>
+    </tr>
+</table>
+
+    @if(Model==null)
+    {
+        @:<p style="color:darkred">Растений не найдено</p>
+    }
+    else
+    {
+        @:<table class="table">
+        @:<tr>
+            @:<th>Название</th>
+            @:<th>Название на латыни</th>
+            @:<th>Изображение</th>
+            @:<th>Дополнительные сведения</th>
+        @:</tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LatinName)
+                </td>
+                <td>
+                    <img src="@Html.DisplayFor(modelItem => item.ImageURL)" style="width:150px" />
+                </td>
+                <td>
+                     <a href="javascript:void(0);" class="anchorDetail" data-id="@item.Id">Подробнее</a>
+                </td>
+            </tr>
+        }
+        @:</table>
+    }
+     <div id='myModal' class='modal'>
+           <div class="modal-dialog">
+                <div class="modal-content">
+                    <div id='myModalContent'>
+                    </div>
+                </div>
+            </div>
+
+     </div>
+
+        @section scripts
+    {
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script>
+
+        var TeamDetailPostBackURL = '/Plant/Details';
+        $(function () {
+            $(".anchorDetail").click(function () 
+            {
+                debugger;
+                var $buttonClicked = $(this);
+                var id = $buttonClicked.attr('data-id');
+                var options = { "backdrop": "static", keyboard: true };
+                $.ajax(
+                    {
+                        type: "GET",
+                        url: TeamDetailPostBackURL,
+                        contentType: "application/json; charset=utf-8",
+                        data: { "Id": id },
+                        datatype: "json",
+                        success: function (data)
+                        {
+                            debugger;
+                            $('#myModalContent').html(data);
+                            $('#myModal').modal(options);
+                            $('#myModal').modal('show');
+
+                        },
+                        error: function ()
+                        {
+                            alert("Ошибка загрузки динамического контента.");
+                        }
+                });
+            });
+            $("#closbtn").click(function () 
+            {
+                $('#myModal').modal('hide');
+            });
+        });
+    </script>
+}

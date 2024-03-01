@@ -2,7 +2,9 @@
   "ExpandedNodes": [
     "",
     "\\WebApplication1",
-    "\\WebApplication1\\Controllers"
+    "\\WebApplication1\\Context",
+    "\\WebApplication1\\Controllers",
+    "\\WebApplication1\\Views"
   ],
   "SelectedNode": "\\WebApplication1.sln",
   "PreviewInSolutionExplorer": false
