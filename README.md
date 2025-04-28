@@ -1,5 +1,8 @@
 # WebDeterminant
-asp.net web application
+
+https://webdeterminant.ru
+
+asp.net web plant determinant
 
 Plant Controller
 Выводит все растения из базы данных.
